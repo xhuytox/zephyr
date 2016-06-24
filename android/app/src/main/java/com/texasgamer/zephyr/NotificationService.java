@@ -39,8 +39,8 @@ public class NotificationService extends NotificationListenerService {
             String text;
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                title = n.extras.getString(Notification.EXTRA_TITLE);
-                text = n.extras.getCharSequence(Notification.EXTRA_TEXT).toString();
+                title = n.extras.getString(Notification.EXTRA_TITLE, "");
+                text = n.extras.getCharSequence(Notification.EXTRA_TEXT, "").toString();
             } else {
                 try {
                     title = getPackageManager().getApplicationLabel(getPackageManager()
